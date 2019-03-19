@@ -1,0 +1,18 @@
+<html>
+<body>
+<div id="result">
+
+</div>
+
+<script>
+    var source = new EventSource("http://shareoffice.epizy.com/sse.php");
+    // var source = new EventSource("//localhost/sse.php");
+    source.onmessage = function(event) {
+        var data= JSON.parse(event.data);
+        console.log(data);
+        document.getElementById("result").innerHTML += event.data + "<br>";
+    };
+</script>
+</body>
+
+</html>

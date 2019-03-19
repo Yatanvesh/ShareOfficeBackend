@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="25e6ce51-5061-4c43-a39d-03b2dd6b8ee2" name="apachi" url="http://localhost/inven">
+        <fileTransfer port="0" mountedRoot="/srv/http" accessType="MOUNT" />
+      </webServer>
+      <webServer id="a27c0194-031d-4e35-8d66-3ad202b25e2e" name="epizyShareOffice" url="http://ftpupload.net">
+        <fileTransfer host="ftpupload.net" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
