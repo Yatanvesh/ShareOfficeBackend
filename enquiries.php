@@ -12,8 +12,8 @@ if( $_REQUEST["email"] ) {
     $moveindate = $_REQUEST["moveindate"];
     $company = $_REQUEST["company"];
     $mobile = $_REQUEST["mobile"];
-    $area = $_REQUEST["Area"];
-    $additionalNotes = $_REQUEST["message"];
+    $area = $_REQUEST["area"];
+    $additionalNotes = $_REQUEST["additionalnotes"];
 //   echo $name .'    '. $email .'    '.  $city .'    '.  $movein .'    '.  $teamsize .'    '.  $moveindate .'    '.  $company .'    '.  $mobile .'    '.  $area .'    '.  $additionalNotes ;
 
     $result = queryMysql("INSERT INTO enquiries (name, email, city, MoveIn, TeamSize,MoveInDate,Company, phone, Location, AdditionalNotes) values('$name', '$email', '$city', '$movein', '$teamsize', '$moveindate','$company','$mobile','$area', '$additionalNotes'  )");
