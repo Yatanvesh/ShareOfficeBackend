@@ -49,6 +49,8 @@ function getEnquiriesJSON(){
         $phone=$row['phone'];
         $location=$row['Location'];
         $additionalnotes=$row['AdditionalNotes'];
+        $seen = $row['Seen'];
+        $id = $row['id'];
 
         $builtEnquiry = array(
             'name'=>$name,
@@ -61,6 +63,8 @@ function getEnquiriesJSON(){
             'phone'=> $phone,
             'location'=> $location,
             'additionalnotes'=> $additionalnotes,
+            'seen'=> $seen,
+            'id' => $id
         );
 
         $enquiries[$j] = $builtEnquiry;
@@ -92,13 +96,17 @@ function getContactsJSON(){
         $email=$row['Email'];
         $phone=$row['Phone'];
         $message=$row['Message'];
+        $seen = $row['Seen'];
+        $id = $row['id'];
 
         $builtContacts = array(
             'name'=>$name,
             'email'=> $email,
             'subject'=> $subject,
             'phone'=> $phone,
-            'message'=> $message
+            'message'=> $message,
+            'seen'=> $seen,
+            'id' => $id
         );
 
         $contacts[$j] = $builtContacts;
@@ -108,6 +116,36 @@ function getContactsJSON(){
         'contacts'=> $contacts
     );
     return json_encode($contactList);
+}
+
+
+function getStatusJSON(){
+    $result = queryMysql("Select * from status");
+    $num    = $result->num_rows;
+    $status = [];
+    for ($j = 0 ; $j < $num ; ++$j)
+    {
+        $row = $result->fetch_array(MYSQLI_BOTH);
+        $changed=$row['changed'];
+        $enquiries=$row['enquiries'];
+        $mailingList=$row['mailingList'];
+        $contactUs=$row['contactUs'];
+
+
+        $builtStatus= array(
+            'changed'=>$changed,
+            'enquiries'=>$enquiries,
+            'mailingList'=>$mailingList,
+            'contactUs'=>$contactUs,
+        );
+
+        $status[$j] = $builtStatus;
+    }
+    $statusList = array(
+        'type'=>'contacts',
+        'contacts'=> $status
+    );
+    return json_encode($statusList);
 }
 
 ?>
