@@ -1,7 +1,7 @@
 <?php
 require_once 'functions.php';
 require_once 'sseHelpers.php';
-
+header("Access-Control-Allow-Origin: *");
 header('Content-Type: text/event-stream');
 header('Cache-Control: no-cache');
 
@@ -11,6 +11,7 @@ $enquiryListJSON = getEnquiriesJSON();
 $contactListJSON = getContactsJSON();
 
 
+//echo "data: {$mailingListJSON}\n\n";
 echo "data: {$mailingListJSON}\n\n";
 echo "data: {$enquiryListJSON}\n\n";
 echo "data: {$contactListJSON}\n\n";

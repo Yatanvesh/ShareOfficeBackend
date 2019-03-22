@@ -1,7 +1,7 @@
 <?php
-require_once 'loginProd.php';
+require_once 'login.php';
 require_once 'mailRunner.php';
-
+header("Access-Control-Allow-Origin: *");
 $connection = new mysqli($dbhost,$dbuser,$dbpass,$dbname);
 if($connection->connect_error) die("fatal error");
 
