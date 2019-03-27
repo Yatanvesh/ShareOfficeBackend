@@ -2,10 +2,10 @@
 require_once 'functions.php';
 header("Access-Control-Allow-Origin: *");
 
-if( $_REQUEST["Email"] ) {
+if( $_REQUEST["email"] ) {
     $name = $_REQUEST["name"];
     $email = $_REQUEST["email"];
-    $subject = $_REQUEST["subject"];
+    $subject = "";
     $phone = $_REQUEST["phone"];
     $message = $_REQUEST["message"];
 
